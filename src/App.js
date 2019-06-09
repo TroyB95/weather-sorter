@@ -1,13 +1,18 @@
-import React from "react";
-import styled from "styled";
+import React, { useEffect } from "react";
+import styled from "styled-components";
 
-const App = styled.div`
+import { apiKey, getWeatherData } from "./Services/fetchWeatherData";
+
+const AppShell = styled.div`
   width: 100%;
   height: 100vh;
 `;
 
 function App() {
-  return <App />;
+  useEffect(() => {
+    getWeatherData().then(data => console.log(data));
+  }, []);
+  return <AppShell>hello</AppShell>;
 }
 
 export default App;
