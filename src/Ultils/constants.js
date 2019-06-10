@@ -12,3 +12,5 @@ const cityIds = {
   hongkong: 1819729,
   tokyo: 1850147,
 };
+
+export { cityIds };
