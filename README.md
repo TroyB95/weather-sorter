@@ -1,3 +1,11 @@
+## Project setup
+
+Navigate to https://openweathermap.org/ and create an api key.
+
+Create a .env file in the root directory and add REACT_APP_WEATHER_API_KEY = YOUR UNIQUE API KEY
+
+// Obviously replacing 'YOUR UNIQUE API KEY' with the api key from openweathermap.org
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
