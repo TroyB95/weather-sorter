@@ -11,6 +11,11 @@ const cityIds = {
   nairobi: 184745,
   hongkong: 1819729,
   tokyo: 1850147,
+  cairo: 360630,
+  seoul: 1835848,
+  monaco: 2993458,
+  kathmandu: 1283241,
+  manila: 1701668,
 };
 
 export { cityIds };
