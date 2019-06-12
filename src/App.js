@@ -16,6 +16,15 @@ const AppShell = styled.div`
   height: 100vh;
 `;
 
+const AppDisplayArea = styled.div`
+  width: 100%;
+  height: 80%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 class App extends React.Component {
   state = {
     weatherData: [],
@@ -24,8 +33,12 @@ class App extends React.Component {
   componentDidMount() {
     getWeatherData().then(data =>
       data.list.forEach(listItem => {
+        console.log(listItem);
         this.setState(state => ({
-          weatherData: [...state.weatherData, [listItem.name, listItem.main.temp]],
+          weatherData: [
+            ...state.weatherData,
+            [listItem.name, listItem.main.temp, listItem.weather[0].main, listItem.weather[0].description],
+          ],
         }));
       })
     );
@@ -61,7 +74,9 @@ class App extends React.Component {
                 </Grid>
               </Grid>
             </AppBar>
-            <InfoDisplay weatherData={this.state.weatherData} />
+            <AppDisplayArea>
+              <InfoDisplay weatherData={this.state.weatherData} dataset={this.state.dataSet} />
+            </AppDisplayArea>
           </AppShell>
         </ThemeProvider>
       </>
