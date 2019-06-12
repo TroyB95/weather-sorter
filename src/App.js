@@ -28,6 +28,7 @@ const AppDisplayArea = styled.div`
 class App extends React.Component {
   state = {
     weatherData: [],
+    dataSet: "warmest",
   };
 
   componentDidMount() {
@@ -53,12 +54,22 @@ class App extends React.Component {
             <AppBar className="top-bar" position="sticky" color="secondary">
               <Grid className="top-bar__grid" container alignItems="center">
                 <Grid className="top-bar__grid-item" item xs={3}>
-                  <Button variant="contained" color="primary" size="medium">
-                    Warmest Capital{" "}
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    size="medium"
+                    onClick={() => this.setState({ dataSet: "warmest" })}
+                  >
+                    Warmest Capital
                   </Button>
                 </Grid>
                 <Grid className="top-bar__grid-item" item xs={3}>
-                  <Button variant="contained" color="primary" size="medium">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    size="medium"
+                    onClick={() => this.setState({ dataSet: "coldest" })}
+                  >
                     Coldest Capital
                   </Button>
                 </Grid>

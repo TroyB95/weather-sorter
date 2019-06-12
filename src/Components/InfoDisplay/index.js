@@ -1,16 +1,33 @@
 import React from "react";
-import styled from "styled-components";
 
 import { WeatherDisplayWidget } from "../WeatherDisplayWidget";
 
 function InfoDisplay(props) {
   let sortedData = [];
 
-  (function findHighestTemp(weatherData) {
+  function findHighestTemp(weatherData) {
     sortedData = [...weatherData].sort((a, b) => {
       return b[1] - a[1];
     });
-  })(props.weatherData);
+  }
+
+  function findLowestTemp(weatherData) {
+    sortedData = [...weatherData].sort((a, b) => {
+      return a[1] - b[1];
+    });
+  }
+
+  // Sort data based on user input
+  switch (props.dataset) {
+    case "warmest":
+      findHighestTemp(props.weatherData);
+      break;
+    case "coldest":
+      findLowestTemp(props.weatherData);
+      break;
+    default:
+      findHighestTemp(props.weatherData);
+  }
 
   // return sortedData.map((cityData, i) => {
 
