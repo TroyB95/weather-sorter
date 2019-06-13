@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
+import { writeUserData } from "./Services/databaseService";
 import { getWeatherData } from "./Services/fetchWeatherData";
 import InfoDisplay from "./Components/InfoDisplay";
 import AppBar from "@material-ui/core/AppBar";
@@ -43,6 +44,7 @@ class App extends React.Component {
         }));
       })
     );
+    writeUserData("0001", "datas");
   }
 
   render() {
